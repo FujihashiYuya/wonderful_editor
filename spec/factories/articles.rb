@@ -17,9 +17,10 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-class Article < ApplicationRecord
-  belongs_to :user
-  has_many :comments
-  has_many :article_likes
-  validates :title, presence: true, uniqueness: { case_sensitive: false }
+FactoryBot.define do
+  factory :article do
+    title { Faker::Book.title }
+    body { Faker::Lorem.sentence }
+    user
+  end
 end

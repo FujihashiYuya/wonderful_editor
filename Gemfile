@@ -38,7 +38,7 @@ group :development, :test do
   gem "pry-byebug" # 追加
   gem "pry-doc" # 追加
   gem "pry-rails" # 追加
-  gem "rspec-rails" # 追加
+  gem "rspec-rails", "~> 4.0.1"
   gem "rubocop-rails" # 追加
   gem "rubocop-rspec" # 追加
 end
@@ -52,9 +52,11 @@ group :development do
   gem "rack-mini-profiler", "~> 2.0"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "annotate" # 追加
-  gem 'rails-erd' # 追記
+  gem "rails-erd" # 追記
   gem "spring"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "gimei"
+gem "rails-i18n"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
