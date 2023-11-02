@@ -28,7 +28,7 @@ RSpec.describe "Api::V1::Auth::Registrations", type: :request do
       end
     end
 
-    context "異常系:名前" do
+    context "異常系 名前" do
       let(:params) { attributes_for(:user, name: nil) }
       before { create(:user, name: "foo") }
 
@@ -157,10 +157,6 @@ RSpec.describe "Api::V1::Auth::Registrations", type: :request do
         expect(response).to have_http_status(:ok)
       end
     end
-  end
-
-  describe "DELETE /api/v1/auth/sign_out" do
-    subject { delete(destroy_api_v1_user_session_path, params: headers) }
 
     context "異常系" do
       let(:user_id) { user.id }

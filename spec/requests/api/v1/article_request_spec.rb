@@ -122,9 +122,9 @@ RSpec.describe "Api::V1::Articles", type: :request do
       end
     end
 
-    context "自分が所持していない記事のレコードを更新しようとするとき" do
+    context "自分ではない記事のレコードを更新しようとするとき" do
       let(:other_user) { create(:user) }
-      let!(:article) { create(:article, user: other_user) }
+      let(:article) { create(:article, user: other_user) }
 
       it "更新できない" do
         expect { subject }.to raise_error(ActiveRecord::RecordNotFound)

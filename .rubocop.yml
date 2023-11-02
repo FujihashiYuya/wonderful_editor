@@ -9,3 +9,13 @@ inherit_from:
 AllCops:
   TargetRubyVersion: 2.7
   SuggestExtensions: false
+
+RSpec/MultipleExpectations:
+  Max: 10
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
