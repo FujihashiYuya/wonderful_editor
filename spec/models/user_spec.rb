@@ -59,7 +59,6 @@ RSpec.describe User, type: :model do
 
   context "名前のみ入力している場合" do
     let(:user) { build(:user, email: nil, password: nil) }
-
     it "エラーが発生する" do
       expect(user).not_to be_valid
     end

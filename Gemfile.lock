@@ -109,9 +109,6 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
-    jbuilder (2.11.5)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
     json (2.6.3)
     jsonapi-renderer (0.2.2)
     language_server-protocol (3.17.0.3)
@@ -322,7 +319,6 @@ DEPENDENCIES
   factory_bot_rails
   faker
   gimei
-  jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
   pry-byebug
