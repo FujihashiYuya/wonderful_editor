@@ -48,6 +48,7 @@ module WonderfulEditor
     end
 
     config.api_only = true
+    config.middleware.use ActionDispatch::Flash
     Rails.application.config.i18n.default_locale = :ja
     # 念の為
     Faker::Config.locale = :ja

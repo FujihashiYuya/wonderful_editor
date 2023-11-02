@@ -4,6 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  body       :text
+#  status     :integer          default("draft")
 #  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -26,6 +27,20 @@ RSpec.describe Article, type: :model do
   context "titleを指定してる時" do
     it "記事が作られる" do
       article = build(:article, user_id: user_id)
+      expect(article).to be_valid
+    end
+  end
+
+  context "ステータス：下書きを指定してる時" do
+    it "記事が作られる" do
+      article = build(:article, user_id: user_id, status: 0)
+      expect(article).to be_valid
+    end
+  end
+
+  context "ステータス：公開を指定してる時" do
+    it "記事が作られる" do
+      article = build(:article, user_id: user_id, status: 1)
       expect(article).to be_valid
     end
   end
