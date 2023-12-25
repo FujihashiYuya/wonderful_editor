@@ -4,10 +4,12 @@ RSpec.describe "Api::V1::Articles", type: :request do
   describe "GET /articles" do
     subject { get(api_v1_articles_path) }
 
+    # rubocop:disable all
     let!(:article1) { create(:article, status: 1, updated_at: 7.days.ago) }
     let!(:article2) { create(:article, status: 1, updated_at: 13.days.ago) }
     let!(:article3) { create(:article, status: 1) }
     let!(:article4) { create(:article, status: 0, updated_at: 3.days.ago) }
+    # rubocop:enable all
     it "記事の一覧が取得できる" do
       subject
       res = JSON.parse(response.body)
@@ -24,8 +26,10 @@ RSpec.describe "Api::V1::Articles", type: :request do
 
     let(:article_id) { article.id }
     let(:article) { create(:article, status: 1) }
+    # rubocop:disable RSpec/ExampleLength
     context "指定したidの記事が存在する時" do
       it "記事のレコードが取得できる" do
+    # rubocop:enable RSpec/ExampleLength
         subject
         res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
