@@ -2,14 +2,16 @@ require "rails_helper"
 
 RSpec.describe "Api::V1::Current::Articles", type: :request do
   let(:current_user) { create(:user) }
-  let(:headers) { current_user.create_new_auth_token }  # 認証トークンを作成
+  let(:headers) { current_user.create_new_auth_token } # 認証トークンを作成
   describe "GET /api/v1/current/articles" do
     subject { get(api_v1_current_articles_path, headers: headers) }
 
+    # rubocop:disable all
     let!(:article1) { create(:article, status: 1, updated_at: 7.days.ago, user: current_user) }
     let!(:article2) { create(:article, status: 1, updated_at: 13.days.ago, user: current_user) }
     let!(:article3) { create(:article, status: 1, user: current_user) }
-    let!(:article4) { create(:article, status: 0, updated_at: 3.days.ago, user: current_user) }
+    let!(:article4) { create(:article, status: 0, updated_at: 3.days.ago, user: current_user) } # rubocop/disable all
+    # rubocop:enable all
     it "記事の一覧が取得できる" do
       subject
       res = JSON.parse(response.body)

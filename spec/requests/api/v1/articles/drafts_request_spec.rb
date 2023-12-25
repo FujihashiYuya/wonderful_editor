@@ -26,8 +26,10 @@ RSpec.describe "Api::V1::Articles::Drafts", type: :request do
 
     let(:article_id) { article.id }
     let(:article) { create(:article, status: 0, user: current_user) }
+    # rubocop:disable all
     context "指定したidの記事が存在する時" do
       it "記事が取得できる" do
+    # rubocop:enable all
         subject
         res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
